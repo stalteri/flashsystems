@@ -1,0 +1,151 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a,a:hover{
+  text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0!important;
+}
+img{
+  // max-width: 100%;
+}
+//***************************************************
+.d-flex{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.placeholder(@rules) {
+    &::-webkit-input-placeholder {
+        @rules();
+    }
+    &:-moz-placeholder {
+        @rules();
+    }
+    &::-moz-placeholder {
+        @rules();
+    }
+    &:-ms-input-placeholder {
+        @rules();
+    }
+}
+//EXAMPLE
+    // .placeholder({
+    //   color: #000;
+    // })
+
+.darken(@color: @base_text_decor_color){
+  color: darken(@color, 10%);
+}
+
+.transition(
+  @transition-property: all;
+  @transition-duration: 0.2s;
+  @transition-delay: 0s;
+  @transition-ease: ease-in;)
+{
+  transition+: @arguments;
+}
+
+.link-btn(
+  @width:154px;
+  @height:38px;
+  @font-size: 16px; 
+  @justify-content: center;
+  @text-transform: uppercase; 
+  @color: #fff;
+  @background-color: @base_btn_color;
+  @hover-background-color: @secondary_btn_color)
+  {
+  .d-flex;
+  justify-content: @justify-content;
+  align-items: center;
+  width: @width;
+  height: @height;
+  font-size: @font-size;
+  text-transform: @text-transform;
+  color:@color;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  font-family: Calibri;
+  background-color: @background-color;
+  .transition;
+  &:hover{
+    background-color: @hover-background-color;
+    color: @color;
+  }
+}
+
+.bottom-arrow(@bgc: #fff){
+  // padding-bottom: 30px;
+  position: relative;
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: @bgc;
+    transform: rotate(45deg);
+    z-index: 100;
+  }
+}
+
+.like-btn(@left: 30px; @top: 15px){
+    display: block;
+    position: absolute;
+    left: @left;
+    top: @top;
+    width: 27px;
+    height: 23px;
+    background-image: url(../images/spritesheet.png);
+    background-position: -76px -5px;
+    &:hover{
+      background-position: -41px -5px;
+    }
+}
+
+.active-link{
+  color: #344da5;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
